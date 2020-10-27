@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "posts",
+  "collectionName": "comments",
   "info": {
-    "name": "Post",
+    "name": "Comment",
     "description": ""
   },
   "options": {
@@ -11,25 +11,18 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "title": {
-      "type": "string",
+    "content": {
+      "type": "text",
       "required": true
     },
-    "content": {
-      "type": "text"
-    },
-    "categories": {
-      "collection": "category",
-      "via": "posts"
-    },
-    "comments": {
-      "via": "post",
-      "collection": "comment"
+    "post": {
+      "model": "post",
+      "via": "comments"
     },
     "users_permissions_user": {
       "plugin": "users-permissions",
       "model": "user",
-      "via": "posts"
+      "via": "comments"
     }
   }
 }
